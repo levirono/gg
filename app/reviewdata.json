@@ -1,0 +1,98 @@
+{
+    "devices": [
+      {
+        "id": 1,
+        "name": "Samsung Galaxy S24  Ultra",
+        "images": ["S24u.png", "s2u2.jpg", "s24u3.jpg", "s24u3.jpg"],
+        "categories": {
+          "Physical Size": {
+            "Screen": "6.8 inches"
+          },
+          "Material": "aluminum frame,front:gorilla grlass victus,back:gorilla glass victus 2",
+          "Width": "76.4 mm",
+          "Resolution": "3200 x 1440 pixels",
+          "Technology": "Dynamic AMOLED,120hz,peak brightness 2600 nits",
+          "Platform": {
+            "OS": "Android 12",
+            "Processor": "Exynos 2200",
+            "GPU": "Mali-G710",
+            "ultra":"gh"
+          },
+          "Cameras": {
+            "Front": "40 MP",
+            "Rear": "108 MP + 12 MP + 12 MP + 8 MP"
+          },
+          "Connections": "5G, Wi-Fi 6, Bluetooth 5.2, USB-C",
+          "Sensors": "Fingerprint (under display), Face ID",
+          "Battery and Charging": "6000 mAh, Fast charging, Wireless charging",
+          "Color": "Phantom Black",
+          "Price": "$1,199.99",
+    
+          "misc":{
+            "dagger":"liht",
+            "blunder":"mates"
+          },
+          "alto":{
+            "live":"now"
+          }
+        }
+      },
+      {
+        "id": 2,
+        "name": "Realme GT 8",
+        "images": ["realme1.png", "realme2.png", "realme3.png"],
+        "categories": {
+          "Physical Size": {
+            "Screen": "6.43 inches"
+          },
+          "Material": "Glass front (Gorilla Glass 5), plastic back",
+          "Width": "74.8 mm",
+          "Resolution": "2400 x 1080 pixels",
+          "Technology": "Super AMOLED, 90Hz refresh rate",
+          "Platform": {
+            "OS": "Android 12",
+            "Processor": "Snapdragon 870",
+            "GPU": "Adreno 650"
+          },
+          "Cameras": {
+            "Front": "16 MP",
+            "Rear": "64 MP + 8 MP + 2 MP"
+          },
+          "Connections": "5G, Wi-Fi 6, Bluetooth 5.1, USB-C",
+          "Sensors": "Fingerprint (under display), Accelerometer, Gyroscope",
+          "Battery and Charging": "4500 mAh, Fast charging 50W",
+          "Color": "Dashing Blue",
+          "Price": "$499.99"
+        }
+      },
+      {
+        "id": 3,
+        "name": "Xiaomi 12s",
+        "images": ["xiaomi1.png", "xiaomi2.png", "xiaomi3.png"],
+        "categories": {
+          "Physical Size": {
+            "Screen": "6.67 inches"
+          },
+          "Material": "Glass front and back (Gorilla Glass Victus), aluminum frame",
+          "Width": "76.7 mm",
+          "Resolution": "2400 x 1080 pixels",
+          "Technology": "Super AMOLED, 120Hz refresh rate",
+          "Platform": {
+            "OS": "Android 12",
+            "Processor": "Snapdragon 8 Gen 1",
+            "GPU": "Adreno 730"
+          },
+          "Cameras": {
+            "Front": "32 MP",
+            "Rear": "108 MP + 12 MP + 8 MP + 5 MP"
+          },
+          "Connections": "5G, Wi-Fi 6E, Bluetooth 5.2, USB-C",
+          "Sensors": "Fingerprint (under display), Face ID, Infrared sensor",
+          "Battery and Charging": "5000 mAh, Fast charging 120W, Wireless charging 80W",
+          "Color": "Cosmic Black",
+          "Price": "$799.99"
+        }
+      }
+    ]
+  }
+  
