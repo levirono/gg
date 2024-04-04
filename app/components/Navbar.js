@@ -12,9 +12,13 @@ const Navbar = () => {
   return (
     <nav className="bg-white p-4 text-green-900 shadow-md border-b border-gray-200">
       <div className="flex items-center justify-between">
-        <div className="w-64 h-32 flex justify-start">
-        <h1 className="text-green-950" style={{ fontSize: '3rem', fontWeight: 'bold', textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)' }}>GENiXL</h1>
-        </div>
+      <div className="w-96 h-48 flex justify-start">
+  <img
+    src="genixl.png"
+    alt="GENiXL Logo"
+    style={{ width: 'auto', height: '100%', marginRight: '0.5rem' }}
+  />
+</div>
 
         {/* Hamburger icon for smaller screens */}
         <div className="md:hidden">
