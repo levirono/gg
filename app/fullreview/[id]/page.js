@@ -72,7 +72,7 @@ const FullReview = ({ params }) => {
         <div className="min-h-max">
           {device?.categories && (
             <div className="bg-gray-200 flex justify-between flex-wrap">
-              <div className=" w-96">
+            <div className="w-full sm:w-96 overflow-x-auto">
                 <h3 className="text-xl font-semibold mb-3 text-green-800">
                   Announced
                 </h3>
@@ -81,7 +81,7 @@ const FullReview = ({ params }) => {
                   <td className="text-black">{device.categories.Announced}</td>
                 </table>
               </div>
-              <div className="  w-96">
+              <div className="w-full sm:w-96 overflow-x-auto">
                 <h3 className="text-xl font-semibold mb-3 text-green-800">
                   Launched
                 </h3>
@@ -90,7 +90,7 @@ const FullReview = ({ params }) => {
                 </table>
               </div>
 
-              <div className="w-96 overflow-x-auto">
+              <div className="w-full sm:w-96 overflow-x-auto">
                 <h3 className="text-xl font-semibold mb-3 text-green-800">
                   Physical size
                 </h3>
@@ -134,7 +134,7 @@ const FullReview = ({ params }) => {
                 </table>
               </div>
 
-              <div className="w-96 overflow-x-auto">
+              <div className="w-full sm:w-96 overflow-x-auto">
                 <h3 className="text-xl font-semibold mb-3 text-green-800">
                   Display
                 </h3>
@@ -168,7 +168,7 @@ const FullReview = ({ params }) => {
                 </table>
               </div>
 
-              <div className="w-96 overflow-x-auto">
+              <div className="w-full sm:w-96 overflow-x-auto">
                 <h3 className="text-xl font-semibold mb-3 text-green-800">
                   Platform
                 </h3>
@@ -210,7 +210,7 @@ const FullReview = ({ params }) => {
                 </table>
               </div>
 
-              <div className="w-96">
+               <div className="w-full sm:w-96 overflow-x-auto">
                 <h3 className="text-xl font-semibold mb-3 text-green-800">
                   Network
                 </h3>
@@ -218,7 +218,7 @@ const FullReview = ({ params }) => {
                   <td className="text-black">{device.categories.Network}</td>
                 </table>
               </div>
-              <div className="w-96">
+               <div className="w-full sm:w-96 overflow-x-auto">
                 <h3 className="text-xl font-semibold mb-3 text-green-800">
                   Memory
                 </h3>
@@ -253,7 +253,7 @@ const FullReview = ({ params }) => {
                 </table>
               </div>
 
-              <div className="w-96">
+               <div className="w-full sm:w-96 overflow-x-auto">
                 <h3 className="text-xl font-semibold mb-3 text-green-800">
                   Communication
                 </h3>
@@ -263,7 +263,7 @@ const FullReview = ({ params }) => {
                   </td>
                 </table>
               </div>
-              <div className="w-96">
+               <div className="w-full sm:w-96 overflow-x-auto">
                 <h3 className="text-xl font-semibold mb-3 text-green-800">
                   Battery and Charging
                 </h3>
@@ -271,7 +271,7 @@ const FullReview = ({ params }) => {
                   <td className="text-black">{device.categories.Battery}</td>
                 </table>
               </div>
-              <div className="w-96">
+              <div className="w-full sm:w-96 overflow-x-auto">
                 <h3 className="text-xl font-semibold mb-3 text-green-800">
                   Sensors
                 </h3>
@@ -279,7 +279,7 @@ const FullReview = ({ params }) => {
                   <td className="text-black">{device.categories.Sensors}</td>
                 </table>
               </div>
-              <div className="w-96">
+               <div className="w-full sm:w-96 overflow-x-auto">
                 <h3 className="text-xl font-semibold mb-3 text-green-800">
                   Color
                 </h3>
@@ -287,7 +287,7 @@ const FullReview = ({ params }) => {
                   <td className="text-black">{device.categories.Color}</td>
                 </table>
               </div>
-              <div className="w-96">
+               <div className="w-full sm:w-96 overflow-x-auto">
                 <h3 className="text-xl font-semibold mb-3 text-green-800">
                   Price
                 </h3>
