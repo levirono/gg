@@ -13,20 +13,18 @@ const Reviews = () => {
 
   useEffect(() => {
     const fetchReviews = async () => {
-      setIsLoading(true); // Set loading state to true
+      setIsLoading(true);
       try {
         const { data, error } = await supabase.from('devices').select('*');
         if (error) {
           console.error('error fetching reviews:', error);
-          // Handle errors
         } else {
           setReviews(data);
         }
       } catch (error) {
         console.error('unexpected error fetching reviews:', error);
-        // Handle unexpected errors
       } finally {
-        setIsLoading(false); // Set loading state to false regardless of success or error
+        setIsLoading(false);
       }
     };
 
@@ -42,46 +40,58 @@ const Reviews = () => {
   };
 
   const handleViewFullReview = (deviceId, deviceName) => {
-    // router.push(`fullreview?deviceId=${deviceId}&deviceName=${encodeURIComponent(deviceName)}`);
-    router.push(`fullreview/${deviceId+"-"+deviceName}}`);
+    router.push(`fullreview/${deviceId}-${encodeURIComponent(deviceName)}`);
   };
 
   const filteredReviews = reviews.filter((review) =>
     review.name.toLowerCase().includes(searchInput.toLowerCase())
   );
 
+  // Sort and group reviews by first word of device name
+  const sections = {};
+  filteredReviews.sort((a, b) => a.name.split(' ')[0].localeCompare(b.name.split(' ')[0]));
+  filteredReviews.forEach((review) => {
+    const firstWord = review.name.split(' ')[0];
+    if (!sections[firstWord]) {
+      sections[firstWord] = [];
+    }
+    sections[firstWord].push(review);
+  });
+
   return (
     <div className="bg-gray-200 min-h-screen">
-      <div className=" mx-auto p-8 rounded-lg">
-        {/* <h1 className="text-center text-4xl font-bold text-green-600 mb-8">GenixLgadget</h1> */}
-        {/* Search Bar */}
+      <div className="mx-auto p-8 rounded-lg">
         <input
           type="text"
           placeholder="Search reviews..."
           value={searchInput}
           onChange={(e) => setSearchInput(e.target.value)}
-          className="mb-4 p-2 border border-gray-300 rounded-md"
+          className="mb-4 p-2 border border-gray-300 rounded-md text-green-900"
         />
 
         {isLoading ? (
-          <p className="text-center text-green">Loading reviews...</p>
+          <p className="text-center text-green-700">Loading reviews...</p>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredReviews.map((review) => (
-              <div key={review.id} className="mb-6 cursor-pointer" onClick={() => handleViewFullReview(review.id, review.name)}>
-
-                <h2 className="text-2xl font-bold text-green-700">{review.name}</h2>
-                {review.images.length > 0 && (
-                  <img
-                    key={review.images[0]}
-                    src={review.images[0]}
-                    alt={`${review.name} Main Image`}
-                    className="mt-4 rounded-md shadow-md w-full max-w-lg mx-auto"
-                  />
-                )}
+          Object.entries(sections).map(([header, reviewsInSection]) => (
+            <div key={header} className="mb-8">
+              <h2 className="text-2xl font-bold text-green-700 mb-4">{header}</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {reviewsInSection.map((review) => (
+                  <div key={review.id} className="mb-6 cursor-pointer" onClick={() => handleViewFullReview(review.id, review.name)}>
+                    <h3 className="text-lg font-semibold text-green-500">{review.name}</h3>
+                    {review.images.length > 0 && (
+                      <img
+                        key={review.images[0]}
+                        src={review.images[0]}
+                        alt={`${review.name} Main Image`}
+                        className="mt-4 rounded-md shadow-md w-full max-w-lg mx-auto"
+                      />
+                    )}
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
+            </div>
+          ))
         )}
 
         <Modal

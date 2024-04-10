@@ -14,7 +14,7 @@ const About = () => {
               GenixL gadgets reviews latest devices in the market,it is a sub brand of GenixL
               </p> 
               <p className="text-lg mb-6 text-gray-600">
-              we are just getting stated,we will improve the performance
+              we are just getting started,we will improve the performance as the time goes
               </p>
             </div>
             <Link href="/explore" className="inline-flex items-center px-4 py-2 rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none">

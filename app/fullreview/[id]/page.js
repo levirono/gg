@@ -56,7 +56,7 @@ const FullReview = ({ params }) => {
 
   return (
     <div className="bg-gray-200 min-h-screen">
-      <div className="mx-20  align-middle">
+      <div className="mx-4 sm:mx-20 align-middle">
         <h1 style={{ fontSize: "2.5rem", color: "#008000" }}>
           {device?.name} Full Review
         </h1>
@@ -72,7 +72,7 @@ const FullReview = ({ params }) => {
         <div className="min-h-max">
           {device?.categories && (
             <div className="bg-gray-200 flex justify-between flex-wrap">
-            <div className="w-full sm:w-96 overflow-x-auto">
+              <div className="w-full sm:w-96 overflow-x-auto">
                 <h3 className="text-xl font-semibold mb-3 text-green-800">
                   Announced
                 </h3>
@@ -96,7 +96,6 @@ const FullReview = ({ params }) => {
                 </h3>
                 <table className="w-full border-collapse border border-cyan-500">
                   <tbody>
-                    
                     <tr className="border-b border-cyan-500">
                       <td className="px-4 py-2  text-red-500 border-r border-cyan-500">
                         Dimension
@@ -129,7 +128,6 @@ const FullReview = ({ params }) => {
                         {device?.categories["Physical Size"].SIM}
                       </td>
                     </tr>
-                    
                   </tbody>
                 </table>
               </div>
@@ -210,7 +208,7 @@ const FullReview = ({ params }) => {
                 </table>
               </div>
 
-               <div className="w-full sm:w-96 overflow-x-auto">
+              <div className="w-full sm:w-96 overflow-x-auto">
                 <h3 className="text-xl font-semibold mb-3 text-green-800">
                   Network
                 </h3>
@@ -218,7 +216,7 @@ const FullReview = ({ params }) => {
                   <td className="text-black">{device.categories.Network}</td>
                 </table>
               </div>
-               <div className="w-full sm:w-96 overflow-x-auto">
+              <div className="w-full sm:w-96 overflow-x-auto">
                 <h3 className="text-xl font-semibold mb-3 text-green-800">
                   Memory
                 </h3>
@@ -253,7 +251,7 @@ const FullReview = ({ params }) => {
                 </table>
               </div>
 
-               <div className="w-full sm:w-96 overflow-x-auto">
+              <div className="w-full sm:w-96 overflow-x-auto">
                 <h3 className="text-xl font-semibold mb-3 text-green-800">
                   Communication
                 </h3>
@@ -263,7 +261,7 @@ const FullReview = ({ params }) => {
                   </td>
                 </table>
               </div>
-               <div className="w-full sm:w-96 overflow-x-auto">
+              <div className="w-full sm:w-96 overflow-x-auto">
                 <h3 className="text-xl font-semibold mb-3 text-green-800">
                   Battery and Charging
                 </h3>
@@ -279,7 +277,7 @@ const FullReview = ({ params }) => {
                   <td className="text-black">{device.categories.Sensors}</td>
                 </table>
               </div>
-               <div className="w-full sm:w-96 overflow-x-auto">
+              <div className="w-full sm:w-96 overflow-x-auto">
                 <h3 className="text-xl font-semibold mb-3 text-green-800">
                   Color
                 </h3>
@@ -287,7 +285,7 @@ const FullReview = ({ params }) => {
                   <td className="text-black">{device.categories.Color}</td>
                 </table>
               </div>
-               <div className="w-full sm:w-96 overflow-x-auto">
+              <div className="w-full sm:w-96 overflow-x-auto">
                 <h3 className="text-xl font-semibold mb-3 text-green-800">
                   Price
                 </h3>
