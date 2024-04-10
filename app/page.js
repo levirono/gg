@@ -9,7 +9,7 @@ const Reviews = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [searchInput, setSearchInput] = useState('');
   const [reviews, setReviews] = useState([]);
-  const [isLoading, setIsLoading] = useState(true); // Added loading state
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchReviews = async () => {
@@ -42,7 +42,8 @@ const Reviews = () => {
   };
 
   const handleViewFullReview = (deviceId, deviceName) => {
-    router.push(`fullreview?deviceId=${deviceId}&deviceName=${encodeURIComponent(deviceName)}`);
+    // router.push(`fullreview?deviceId=${deviceId}&deviceName=${encodeURIComponent(deviceName)}`);
+    router.push(`fullreview/${deviceId+"-"+deviceName}}`);
   };
 
   const filteredReviews = reviews.filter((review) =>
@@ -52,7 +53,7 @@ const Reviews = () => {
   return (
     <div className="bg-gray-200 min-h-screen">
       <div className=" mx-auto p-8 rounded-lg">
-        <h1 className="text-center text-4xl font-bold text-green-600 mb-8">GenixLgadget</h1>
+        {/* <h1 className="text-center text-4xl font-bold text-green-600 mb-8">GenixLgadget</h1> */}
         {/* Search Bar */}
         <input
           type="text"
@@ -63,7 +64,7 @@ const Reviews = () => {
         />
 
         {isLoading ? (
-          <p className="text-center">Loading reviews...</p>
+          <p className="text-center text-green">Loading reviews...</p>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredReviews.map((review) => (

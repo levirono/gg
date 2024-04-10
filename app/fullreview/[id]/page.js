@@ -1,19 +1,20 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { useRouter, useParams } from "next/navigation";
-import reviewData from "../reviewdata.json"; // Import reviewdata.json from the app directory
-import { useSearchParams } from "next/navigation";
+import { useRouter} from "next/navigation";
+// import { useSearchParams } from "next/navigation";
 import supabase from "@/lib/supabase";
-import Comments from "../components/Comment";
+import Comments from "../../components/Comment";
 
-const FullReview = () => {
+const FullReview = ({ params }) => {
   const router = useRouter();
   const [device, setDevice] = useState(null);
-  const param = new useSearchParams();
+  // const param = new useSearchParams();
+
 
   const [isloading, setisloading] = useState(true);
 
-  const deviceId = param.get("deviceId");
+  const deviceId = params.id.split('-')[0];
+  // const deviceId = param.get("deviceId");
 
   useEffect(() => {
     const fetchReviews = async () => {
@@ -43,7 +44,7 @@ const FullReview = () => {
   }, []);
 
   if (isloading) {
-    return <h1>Loading please wait</h1>;
+    return <h1 className="fixed inset-0 flex items-center justify-center bg-gray-200 text-green-500">Loading please wait...</h1>;
   }
 
   const sim = device?.categories["Physical Size"].SIM;
@@ -57,9 +58,9 @@ const FullReview = () => {
     <div className="bg-gray-200 min-h-screen">
     <div className="mx-20  align-middle">
       <h1 style={{ fontSize: "2.5rem", color: "#008000" }}>
-        {device.name} Full Review
+        {device?.name} Full Review
       </h1>
-      {device.images && device.images.length > 0 && (
+      {device?.images && device.images.length > 0 && (
         <div className="flex justify-center mb-6">
           <img
             src={device.images[0]}
@@ -68,9 +69,9 @@ const FullReview = () => {
           />
         </div>
       )}
-      <div className="">
+      <div className="min-h-max">
         {device?.categories && (
-          <div className="bg-gray-200 flex gap-20 flex-wrap">
+          <div className="bg-gray-200 flex justify-between flex-wrap">
             <div className=" w-96">
               <h3 className="text-xl font-semibold mb-3 text-green-800">
                 Announced
@@ -78,7 +79,6 @@ const FullReview = () => {
 
               <table className="w-full border-collapse border border-cyan-500">
                 <td className="text-black">{device.categories.Announced}</td>
-                yaya
               </table>
             </div>
             <div className="  w-96">
@@ -266,7 +266,7 @@ const FullReview = () => {
             Description
           </h3>
           {/* Render each paragraph of the description as a separate <p> element */}
-          {device.description &&
+          {device?.description &&
             device.description.split("\n").map((paragraph, index) => (
               <p key={index} className="text-gray-700 mb-2">
                 {paragraph}
@@ -280,7 +280,7 @@ const FullReview = () => {
             Additional Images
           </h3>
           <div className="flex justify-center items-center flex-wrap">
-            {device.images &&
+            {device?.images &&
               device.images.length > 1 &&
               device.images
                 .slice(1)
@@ -294,7 +294,7 @@ const FullReview = () => {
                 ))}
           </div>
         </div>
-        <Comments deviceId={device.id} />
+        <Comments deviceId={device?.id} />
 
       </div>
       </div>

@@ -10,7 +10,10 @@
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.41.1",
+    "cloudinary": "^2.1.0",
+    "cloudinary-react": "^1.8.1",
     "next": "14.1.4",
+    "next-cloudinary": "^6.4.0",
     "react": "^18",
     "react-dom": "^18",
     "react-modal": "^3.16.1",
