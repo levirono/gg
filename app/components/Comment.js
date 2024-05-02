@@ -5,8 +5,9 @@ const Comments = ({ deviceId }) => {
   const [comments, setComments] = useState([]);
   const [author, setAuthor] = useState('');
   const [content, setContent] = useState('');
-  const [showReplyField, setShowReplyField] = useState(null); // State to track which comment's reply field to show
+  const [showReplyField, setShowReplyField] = useState(null);
   const [popupVisible, setPopupVisible] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
     const fetchComments = async () => {
@@ -30,37 +31,47 @@ const Comments = ({ deviceId }) => {
 
   const handleNewComment = async (e) => {
     e.preventDefault();
-
-    if (!author.trim() || !content.trim()) {
-      alert('Please enter your name and comment content.');
+  
+    if (!author.trim() || !content.trim() || isSubmitting) {
       return;
     }
-
+  
+    setIsSubmitting(true);
+  
     try {
       const newComment = {
         deviceId,
         author,
         content,
       };
-
+  
       const { data, error } = await supabase.from('comments').insert([newComment]);
-
+  
       if (error) {
         console.error('Error adding comment:', error.message);
       } else {
-        setComments([...comments, ...data]);
-        setPopupVisible(true);
-        setAuthor('');
-        setContent('');
+        if (data && data.length > 0) {
+          const insertedComment = data[0];
+          setComments([...comments, insertedComment]);
+          setPopupVisible(true);
+          setAuthor('');
+          setContent('');
+          setTimeout(() => {
+            setPopupVisible(false);
+          }, 3000);
+        } else {
 
-        setTimeout(() => {
-          setPopupVisible(false);
-        }, 3000);
+        }
       }
+      
     } catch (error) {
       console.error('Unexpected error adding comment:', error.message);
+    } finally {
+      setIsSubmitting(false);
     }
   };
+  
+  
 
   const handleReplyToggle = (commentId) => {
     setShowReplyField(commentId === showReplyField ? null : commentId);
@@ -77,7 +88,6 @@ const Comments = ({ deviceId }) => {
           <button onClick={() => handleReplyToggle(comment.id)} className="text-sm text-gray-500 underline mt-1">
             Reply
           </button>
-          {/* Render reply field conditionally */}
           {showReplyField === comment.id && (
             <div className="ml-4">
               <input
@@ -98,9 +108,10 @@ const Comments = ({ deviceId }) => {
               <button
                 type="button"
                 onClick={handleNewComment}
+                disabled={isSubmitting}
                 className="bg-green-500 text-white py-2 px-4 rounded hover:bg-green-600"
               >
-                Post Reply
+                {isSubmitting ? 'Posting...' : 'Post Reply'}
               </button>
             </div>
           )}
@@ -133,9 +144,10 @@ const Comments = ({ deviceId }) => {
           />
           <button
             type="submit"
+            disabled={isSubmitting}
             className="bg-green-500 text-white py-2 px-4 rounded hover:bg-green-600"
           >
-            Post Comment
+            {isSubmitting ? 'Posting...' : 'Post Comment'}
           </button>
         </form>
       </div>
