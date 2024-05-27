@@ -4,7 +4,7 @@ import supabase from "@/lib/supabase";
 
 const AddReview = () => {
   const [name, setName] = useState("");
-  const [description, setDescription] = useState(""); // State for the description
+  const [description, setDescription] = useState("");
   const [categoryInputs, setCategoryInputs] = useState([
     { category: "Announced", subcategories: [] },
     { category: "Launched", subcategories: [] },
@@ -125,7 +125,6 @@ const AddReview = () => {
         throw error;
       }
   
-      // Clear the form upon successful submission
       console.log('Review inserted:', data);
       setName('');
       setDescription('');
